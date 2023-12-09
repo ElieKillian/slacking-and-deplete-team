@@ -4,6 +4,7 @@ import Stars from '../../composants/stars';
 function Home() {
 
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
@@ -33,13 +34,21 @@ function Home() {
           } catch (error) {
             console.error('Une erreur s\'est produite :', error);
             setError(true);
+          } finally {
+            setLoading(false);
           }
         };
         
         fetchDataForAllUsers();
       }, []); 
 
-    if (error){return(<p>Erreur d'import des données !</p>)}
+    if (loading) {
+      return <p>Chargement en cours...</p>;
+    }
+
+    if (error){
+      return(<p>Erreur d'import des données !</p>)
+    }
 
     console.log('data :',data);
 
@@ -99,8 +108,8 @@ function Home() {
                 </thead>
                 <tbody className='page__table__content'>
                   {/* PLAYER 1 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[0]?.thumbnail_url} alt='player1' />
                       {data[0]?.name}
                     </td>
