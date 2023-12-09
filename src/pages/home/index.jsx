@@ -42,6 +42,8 @@ function Home() {
         fetchDataForAllUsers();
       }, []); 
 
+    console.log(data);
+
     if (loading) {
       return <p>Chargement en cours...</p>;
     }
@@ -74,12 +76,13 @@ function Home() {
       filterDungeons.push(dungeonData);
     }
 
-    console.log('filterDungeons',filterDungeons);
+    // console.log('filterDungeons',filterDungeons);
 
       return (
         <section>
           <div>
             <div className='page'>
+              <h2>Récapitulatif des clés effectuées par chaque membre</h2>
               <table className='page__table'>
                 <thead className='page__table__header'>
                   <tr>

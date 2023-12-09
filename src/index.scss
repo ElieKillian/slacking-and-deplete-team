@@ -21,6 +21,13 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+  }  
+  h1, h2{
+    display: flex;
+    color:var(--write-color);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
   a{
     text-decoration: none;
@@ -34,6 +41,7 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
+    margin-bottom: 30px;
     background-color: var(--background-black);
     height: 10vh;
 
@@ -46,13 +54,6 @@
       border-radius: 20px;
       width: 40%;
       gap : 2%;
-
-      h1{
-        display: flex;
-        color:var(--write-color);
-        align-items: center;
-        margin: 0;
-      }
     }
   
     &__right{
@@ -84,13 +85,14 @@ footer{
   justify-content: center;
   background-color: var(--background-black);
   color:var(--write-color);
+  margin-top: 60px;
 }
 
 // Tableau JS
 
 table {
   border-collapse: collapse;
-  margin : 50px auto;
+  margin : 30px auto 0;
   color: var(--write-color);
 }
 
