@@ -9,7 +9,7 @@ function Home() {
 
     useEffect(() => {
         const fetchDataForUser = async (user) => {
-          const url = `https://raider.io/api/v1/characters/profile?region=${user.region}&realm=${user.realm}&name=${user.name}&fields=mythic_plus_best_runs%2Cmythic_plus_alternate_runs`;
+          const url = `https://raider.io/api/v1/characters/profile?region=${user.region}&realm=${user.realm}&name=${user.name}&fields=mythic_plus_scores_by_season:current%2Cmythic_plus_best_runs%2Cmythic_plus_alternate_runs`;
           const response = await fetch(url, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
@@ -38,9 +38,11 @@ function Home() {
             setLoading(false);
           }
         };
-        
+
         fetchDataForAllUsers();
       }, []); 
+      
+      console.log(data);
 
     if (loading) {
       return <p>Chargement en cours...</p>;
