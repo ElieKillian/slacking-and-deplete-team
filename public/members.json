@@ -1,0 +1,41 @@
+{
+    "members" : [
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Rafika"
+        },
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Agrañ"
+        },
+        {
+            "region": "eu",
+            "realm": "kirin-tor",
+            "name": "Kovani"
+        },
+        {
+            "region": "eu",
+            "realm": "elune",
+            "name": "Bialys"
+        },
+        {
+            "region": "eu",
+            "realm": "Vol'jin",
+            "name": "Ciramør"
+        },
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Lilòw"
+    }],
+    "Alts" : [
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Rafí"
+        }
+    ]
+
+}
