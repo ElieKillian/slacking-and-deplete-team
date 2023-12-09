@@ -42,8 +42,6 @@ function Home() {
         fetchDataForAllUsers();
       }, []); 
 
-    console.log(data);
-
     if (loading) {
       return <p>Chargement en cours...</p>;
     }
@@ -75,8 +73,6 @@ function Home() {
       });
       filterDungeons.push(dungeonData);
     }
-
-    // console.log('filterDungeons',filterDungeons);
 
       return (
         <section>
