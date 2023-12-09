@@ -50,8 +50,6 @@ function Home() {
       return(<p>Erreur d'import des données !</p>)
     }
 
-    console.log('data :',data);
-
     const nameDungeons = data[0]?.mythic_plus_best_runs.map((item) => item.dungeon) || [];
     // attribuer chaque donjon à une const
     const dungeon = {};
@@ -100,9 +98,9 @@ function Home() {
                     {error === false ? (
                         nameDungeons?.map((item, index) => (
                           <>
-                            <th key={index}>FOR</th>
-                            <th>TYR</th>
-                          </>
+                            <th key={index}><img src={'https://wow.zamimg.com/images/wow/icons/large/ability_toughness.jpg'} alt='Fortifié' /></th>
+                            <th><img src={'https://wow.zamimg.com/images/wow/icons/large/achievement_boss_archaedas.jpg'} alt='Tyrannique' /></th>
+                          </> 
                         ))) : (null)}
                   </tr>
                 </thead>
@@ -116,259 +114,285 @@ function Home() {
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                          <td className='page__table__content__line__key'>
                             {filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
-                                {filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.mythic_level || 0}
+                              <div className='page__table__content__line__key__content'>
+                                <div>{filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.mythic_level || 0}</div>
                                 <Stars content={filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.num_keystone_upgrades} />
-                              </>
+                              </div>
                             }
                             {filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
-                                {filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.mythic_level || 0}
+                              <div className='page__table__content__line__key__content'>
+                                <div>{filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.mythic_level || 0}</div>
                                 <Stars content={filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.num_keystone_upgrades} />
-                              </>
+                              </div>
                             }
                           </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
-                              {filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.mythic_level || 0}
+                            <div className='page__table__content__line__key__content'>
+                              <div>{filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.mythic_level || 0}</div>
                               <Stars content={filterDungeons[0]?.[`dj${index}1`]?.filterDungeon?.num_keystone_upgrades} />                              
-                            </>
+                            </div>
                           }
                           {filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
-                              {filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.mythic_level || 0}
+                            <div className='page__table__content__line__key__content'>
+                              <div>{filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.mythic_level || 0}</div>
                               <Stars content={filterDungeons[0]?.[`dj${index}1`]?.filterAltDungeon?.num_keystone_upgrades} />
-                            </>
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 2 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[1]?.thumbnail_url} alt='player2' />
                       {data[1]?.name}
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                          <td className='page__table__content__line__key'>
                             {filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                             {filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                           </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[1]?.[`dj${index}2`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[1]?.[`dj${index}2`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 3 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[2]?.thumbnail_url} alt='player3' />
                       {data[2]?.name}
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                          <td className='page__table__content__line__key'>
                             {filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                             {filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                           </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[2]?.[`dj${index}3`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[2]?.[`dj${index}3`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 4 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[3]?.thumbnail_url} alt='player4' />
                       {data[3]?.name}
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                          <td className='page__table__content__line__key'>
                             {filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                             {filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                           </td>
-
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[3]?.[`dj${index}4`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[3]?.[`dj${index}4`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 5 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[4]?.thumbnail_url} alt='player5' />
                       {data[4]?.name}
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
-                            {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
-                                {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.mythic_level || 0}
-                              </>
-                            }
-                            {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
-                                {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
-                            }
-                          </td>
+                        <td className='page__table__content__line__key'>
+                          {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
+                            <div className='page__table__content__line__key__content'>
+                              {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.mythic_level || 0}
+                              <Stars content={filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
+                          }
+                          {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
+                            <div className='page__table__content__line__key__content'>
+                              {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.mythic_level || 0}
+                              <Stars content={filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
+                          }
+                        </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[4]?.[`dj${index}5`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[4]?.[`dj${index}5`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 6 */}
-                  <tr>
-                    <td>
+                  <tr className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
                       <img src={data[5]?.thumbnail_url} alt='player6' />
                       {data[5]?.name}
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                          <td className='page__table__content__line__key'>
                             {filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                             {filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                           </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[5]?.[`dj${index}6`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[5]?.[`dj${index}6`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>
                     ))}
                   </tr>
                   {/* PLAYER 7 */}
-                  <tr style={{ display: 'none' }}>
-                    <td>{data[6]?.name}</td>
+                  <tr style={{ display: 'none' }} className='page__table__content__line'>
+                    <td className='page__table__content__line__name'>
+                      <img src={data[6]?.thumbnail_url} alt='player7' />
+                      {data[6]?.name}
+                    </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
-                          <td>
+                        <td className='page__table__content__line__key'>
                             {filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
                             {filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
-                              <>
+                              <div className='page__table__content__line__key__content'>
                                 {filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.mythic_level || 0}
-                              </>
+                                <Stars content={filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.num_keystone_upgrades} />
+                              </div>
                             }
-                          </td>
+                        </td>
 
                         {/* Tyrannical */}
-                        <td>
+                        <td className='page__table__content__line__key'>
                           {filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[6]?.[`dj${index}7`]?.filterDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                           {filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
-                            <>
+                            <div className='page__table__content__line__key__content'>
                               {filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.mythic_level || 0}
-                            </>
+                              <Stars content={filterDungeons[6]?.[`dj${index}7`]?.filterAltDungeon?.num_keystone_upgrades} />
+                            </div>
                           }
                         </td>
                       </React.Fragment>

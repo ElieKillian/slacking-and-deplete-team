@@ -7,7 +7,7 @@ function Stars(props){
         <>★</>
       ));
 
-    return <div>{stars}</div>
+    return <div className="stars">{stars}</div>
 };
 
 export default Stars;

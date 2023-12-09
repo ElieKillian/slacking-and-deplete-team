@@ -36,6 +36,10 @@
     margin: auto;
     background-color: var(--background-black);
     height: 10vh;
+
+    @media all and (max-width: 1024px){
+      height: 20vh;
+    }
   
     &__left {
       display: flex;
@@ -91,6 +95,44 @@ table {
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid var(--background-black);
   padding: 10px;
+}
+
+.page{
+  &__table{
+    &__header{
+      background-color: var(--background-black);
+
+      img{
+        border-radius: 20px;
+      }
+    }
+    &__content{
+      &__line{
+        
+        &__name{
+          background-color: var(--background-black);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          img{
+            border-radius: 20px;
+          }
+        }
+        &__key{
+          &__content{
+            display: flex;
+            justify-content: center;
+            font-weight: 700;
+          }          
+        }
+      }
+    }
+  }
+}
+
+.stars{
+  color : gold;
 }
