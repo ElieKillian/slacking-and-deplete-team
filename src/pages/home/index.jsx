@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import Stars from '../../composants/stars';
+import rio from './Icon_FullColor.png';
 
 function Home() {
 
@@ -110,7 +112,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[0]?.thumbnail_url} alt='player1' />
-                      {data[0]?.name}
+                      <div className='page__table__content__line__name__div'>
+                        {data[0]?.name}
+                        <Link to={data[0]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
@@ -152,7 +157,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[1]?.thumbnail_url} alt='player2' />
-                      {data[1]?.name}
+                      <div className='page__table__content__line__name__div'>
+                        {data[1]?.name}
+                        <Link to={data[1]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
@@ -194,8 +202,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[2]?.thumbnail_url} alt='player3' />
-                      {data[2]?.name}
-                    </td>
+                      <div className='page__table__content__line__name__div'>
+                        {data[2]?.name}
+                        <Link to={data[2]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>                    </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
@@ -236,8 +246,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[3]?.thumbnail_url} alt='player4' />
-                      {data[3]?.name}
-                    </td>
+                      <div className='page__table__content__line__name__div'>
+                        {data[3]?.name}
+                        <Link to={data[3]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>                    </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
@@ -277,8 +289,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[4]?.thumbnail_url} alt='player5' />
-                      {data[4]?.name}
-                    </td>
+                      <div className='page__table__content__line__name__div'>
+                        {data[4]?.name}
+                        <Link to={data[4]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>                    </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
                         {/* Fortified */}
@@ -319,7 +333,10 @@ function Home() {
                   <tr className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[5]?.thumbnail_url} alt='player6' />
-                      {data[5]?.name}
+                      <div className='page__table__content__line__name__div'>
+                        {data[5]?.name}
+                        <Link to={data[5]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
@@ -361,7 +378,10 @@ function Home() {
                   <tr style={{ display: 'none' }} className='page__table__content__line'>
                     <td className='page__table__content__line__name'>
                       <img src={data[6]?.thumbnail_url} alt='player7' />
-                      {data[6]?.name}
+                      <div className='page__table__content__line__name__div'>
+                        {data[6]?.name}
+                        <Link to={data[6]?.profile_url} target='_blank'><img src={rio} alt='rio' /></Link> 
+                      </div>
                     </td>
                       {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                         <React.Fragment key={index}>
