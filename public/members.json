@@ -40,7 +40,26 @@
             "region": "eu",
             "realm": "hyjal",
             "name": "Víga"
+        },
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Ñox"
+        },
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Arlañ"
+        },
+        {
+            "region": "eu",
+            "realm": "kirin-tor",
+            "name": "Yethana"
+        },
+        {
+            "region": "eu",
+            "realm": "elune",
+            "name": "Hinamoré"
         }
     ]
-
 }

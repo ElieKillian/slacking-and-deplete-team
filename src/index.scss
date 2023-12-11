@@ -59,18 +59,17 @@
     &__right{
       display: flex;
       justify-content: center;
-      gap : 5px;
       width: 25%;
-      gap : 20%;
+      gap : 5%;
   
       &__link{      
         display: flex;
         align-items: center;
+        justify-content: center;
         color: var(--write-color);
         background-color: var(--background-black);
         box-shadow: 0 3px 15px 0 rgba(0,0,0,0.1);
-        border-radius: 10px;
-        // padding : 5px 20%;
+        width: 100px;
         font-size: large;
         font-weight: 700;
       }
@@ -78,6 +77,8 @@
   }
   .active{
     color: var(--green);
+    padding-top: 5px;
+    border-bottom: 5px solid;
   }
 // Composant Footer
 footer{
@@ -102,6 +103,58 @@ th, td {
 }
 
 .page{
+  &__container{
+    display: flex;
+    justify-content: center;
+    gap : 100px;
+
+    &__card1{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--background-black);
+      color: var(--write-color);
+      border-radius: 20px;
+      padding:20px;
+      margin-top: 20px;
+      gap : 10px;
+
+      &__content{
+        display: flex;
+        justify-content: center;
+        gap : 20px;
+
+        &__affixes{
+          display: flex;
+          flex-direction: column;
+          justify-content: center; 
+          align-items: center;
+          gap : 10px;
+
+          img{
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+          }
+        }
+      }
+
+
+    }
+
+    &__card2{
+      background-color: var(--background-black);
+      color: var(--write-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 20px;
+    }
+  }
+
   &__table{
     &__header{
       background-color: var(--background-black);

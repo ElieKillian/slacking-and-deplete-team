@@ -1,0 +1,51 @@
+[
+        {
+            "name" : "Fortifié",
+            "icon" : "./iconsaffixes/fortified.jpg"
+        },
+        {
+            "name" : "Tyrannique",
+            "icon" : "./iconsaffixes/tyrannical.jpg"
+        },
+        {
+            "name" : "Affliction",
+            "icon" : "./iconsaffixes/afflicted.jpg"
+        },   
+        {
+            "name" : "Enchevêtrement",
+            "icon" : "./iconsaffixes/entangling.jpg"
+        },    
+        {
+            "name" : "Incorporel",
+            "icon" : "./iconsaffixes/incorporeal.jpg"
+        },    
+        {
+            "name" : "Tourbillonnant",
+            "icon" : "./iconsaffixes/storming.jpg"
+        },    
+        {
+            "name" : "Volcanique",
+            "icon" : "./iconsaffixes/volcanic.jpg"
+        },
+
+        {
+            "name" : "Galvanisant",
+            "icon" : "./iconsaffixes/bolstering.jpg"
+        },   
+        {
+            "name" : "Détonant",
+            "icon" : "./iconsaffixes/bursting.jpg"
+        },    
+        {
+            "name" : "Déchaîné",
+            "icon" : "./iconsaffixes/raging.jpg"
+        },    
+        {
+            "name" : "Sanguin",
+            "icon" : "./iconsaffixes/sanguine.jpg"
+        },    
+        {
+            "name" : "Malveillant",
+            "icon" : "./iconsaffixes/spiteful.jpg"
+        }   
+]

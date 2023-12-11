@@ -86,7 +86,7 @@ function Table(props){
     }
 
     return (
-        <table className='page__table'>
+      <table className='page__table'>
         <thead className='page__table__header'>
           <tr>
             <th></th>

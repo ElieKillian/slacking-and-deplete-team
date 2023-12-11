@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.scss';
 // pages
 import Home from './pages/home';
+import Roster from './pages/roster';
 import Alts from './pages/alts';
 // composants
 import Header from './composants/header';
@@ -20,6 +21,7 @@ ReactDOM.createRoot(rootElement).render(
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/roster' element={<Roster />} />
           <Route path='/alts' element={<Alts />} />
         </Routes>
         </div>

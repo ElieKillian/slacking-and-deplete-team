@@ -27,7 +27,8 @@ function Header(){
               <h1>Slacking & Deplete</h1>
             </div>
             <nav className="header__right">
-                <Link to='/' className="header__right__link">Roster</Link>
+                <Link to='/' className="header__right__link">Accueil</Link>
+                <Link to='/roster' className="header__right__link">Roster</Link>
                 <Link to='/alts' className="header__right__link">Alts</Link>
             </nav>
         </header>
