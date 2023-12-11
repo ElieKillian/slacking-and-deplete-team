@@ -118,7 +118,6 @@ th, td {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap : 5px;
 
           img{
             border-radius: 20px;
@@ -127,7 +126,9 @@ th, td {
           &__div{
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-direction: column;
+            min-width: 70px;
             gap : 5px;
 
             a{

@@ -30,11 +30,16 @@
             "realm": "hyjal",
             "name": "Lilòw"
     }],
-    "Alts" : [
+    "alts" : [
         {
             "region": "eu",
             "realm": "hyjal",
             "name": "Rafí"
+        },
+        {
+            "region": "eu",
+            "realm": "hyjal",
+            "name": "Víga"
         }
     ]
 
