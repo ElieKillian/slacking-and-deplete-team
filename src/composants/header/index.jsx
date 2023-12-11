@@ -28,7 +28,7 @@ function Header(){
             </div>
             <nav className="header__right">
                 <Link to='/' className="header__right__link">Accueil</Link>
-                <Link to='/roster' className="header__right__link">Roster</Link>
+                <Link to='/roster' className="header__right__link">Mains</Link>
                 <Link to='/alts' className="header__right__link">Alts</Link>
             </nav>
         </header>

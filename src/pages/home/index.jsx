@@ -40,10 +40,6 @@ function Home(){
         getIcons();
     }, []);
 
-    console.log('affixes :',affixes);
-    console.log('affixes :',affixesIcons);
-
-
     if (loading) {
         return <p>Chargement en cours...</p>;
     }
@@ -63,8 +59,6 @@ function Home(){
             findIcon[i + 1] = ''; 
         }
     }
-
-    console.log(findIcon);
       
     return (
         <section className="page">
