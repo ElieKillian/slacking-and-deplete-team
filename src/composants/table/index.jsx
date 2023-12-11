@@ -51,7 +51,7 @@ function Table(props){
         };
 
         fetchDataForAllUsers();
-      }, []); 
+      }, [content]); 
       
     if (loading) {
       return <p>Chargement en cours...</p>;
