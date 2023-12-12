@@ -146,7 +146,7 @@ function Table(props){
                         <img src={wow} alt='icone wow' />
                       </Link>
                     </div>
-                    {player.mythic_plus_scores_by_season[0].scores.all}
+                    {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
                 </div>
                 </td>
 
