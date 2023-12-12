@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.scss';
 // pages
 import Home from './pages/home';
-import Mains from './pages/mains';
+import Main from './pages/main';
 import Alts from './pages/alts';
 // composants
 import Header from './composants/header';
@@ -21,7 +21,7 @@ ReactDOM.createRoot(rootElement).render(
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/mains' element={<Mains />} />
+          <Route path='/main' element={<Main />} />
           <Route path='/alts' element={<Alts />} />
         </Routes>
         </div>
