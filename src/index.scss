@@ -22,12 +22,15 @@
     justify-content: space-between;
     min-height: 100vh;
   }  
-  h1, h2{
+  h1, h2, h3{
     display: flex;
     color:var(--write-color);
     justify-content: center;
     align-items: center;
     margin: 0;
+  }
+  h2{
+    margin: 20px;
   }
   a{
     text-decoration: none;
@@ -106,52 +109,71 @@ th, td {
   &__container{
     display: flex;
     justify-content: center;
-    gap : 100px;
+    flex-direction: column;
+    gap : 20px;
 
-    &__card1{
+    &__div{
+
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--background-black);
-      color: var(--write-color);
-      border-radius: 20px;
-      padding:20px;
-      margin-top: 20px;
-      gap : 10px;
+      justify-content: space-around;
 
-      &__content{
+      &__card{
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap : 20px;
+        align-items: center;
+        background-color: var(--background-black);
+        color: var(--write-color);
+        border-radius: 20px;
+        padding:20px;
+        margin-top: 20px;
+        width: 40%;
+        gap : 10px;
 
-        &__affixes{
+        &__content{
           display: flex;
-          flex-direction: column;
-          justify-content: center; 
+          justify-content: center;
           align-items: center;
-          gap : 10px;
+          gap : 20px;
 
-          img{
-            width: 64px;
-            height: 64px;
-            border-radius: 20px;
+          &__affixes{
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+
+            img{
+              width: 64px;
+              height: 64px;
+              border-radius: 20px;
+            }
           }
         }
       }
 
+      &__card2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--background-black);
+        color: var(--write-color);
+        border-radius: 20px;
+        padding:20px;
+        width: 50%;
+        margin-top: 20px;
+        gap : 10px;
+        
+        &__youtube{
+          width: 100%;
+          display: flex;
+          justify-content: center;
 
-    }
-
-    &__card2{
-      background-color: var(--background-black);
-      color: var(--write-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 20px;
+          iframe{
+            border-radius: 20px;
+          }
+        }
+      }
     }
   }
 
@@ -205,3 +227,4 @@ th, td {
 .stars{
   color : gold;
 }
+

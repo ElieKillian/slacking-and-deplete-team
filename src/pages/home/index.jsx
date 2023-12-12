@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import YouTube from 'react-youtube';
 import wl from './wl.png';
 import rio from './rio.png';
 
@@ -10,6 +11,8 @@ function Home(){
     const [affixesIcons, setAffixesIcons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+
+    const videoId = 'xmSMW30jf4M';    
 
     useEffect(() => {
 
@@ -64,30 +67,38 @@ function Home(){
         <section className="page">
             <h2>Bienvenue sur le site de la team !</h2>
             <div className="page__container">
-                <div className="page__container__card1">
-                    <h3>Affixes de la semaine :</h3>
-                    <div className="page__container__card1__content">
-                        <div className="page__container__card1__content__affixes">                             
-                            {affixes.affix_details[0]?.name}                       
-                            <img src={findIcon[1]} alt={affixes.affix_details[0]?.name} />
-                        </div>
-                        <div className="page__container__card1__content__affixes">
-                            {affixes.affix_details[1]?.name}
-                            <img src={findIcon[2]} alt={affixes.affix_details[1]?.name} />
-                        </div>
-                        <div className="page__container__card1__content__affixes">
-                                {affixes.affix_details[2]?.name}
+                <div className="page__container__div">
+                    <div className="page__container__div__card">
+                        <h3>Affixes de la semaine :</h3>
+                        <div className="page__container__div__card__content">
+                            <div className="page__container__div__card__content__affixes">                             
+                                <h4>{affixes.affix_details[0]?.name}</h4>                       
+                                <img src={findIcon[1]} alt={affixes.affix_details[0]?.name} />
+                            </div>
+                            <div className="page__container__div__card__content__affixes">
+                                <h4>{affixes.affix_details[1]?.name}</h4>
+                                <img src={findIcon[2]} alt={affixes.affix_details[1]?.name} />
+                            </div>
+                            <div className="page__container__div__card__content__affixes">
+                                <h4>{affixes.affix_details[2]?.name}</h4>
                                 <img src={findIcon[3]} alt={affixes.affix_details[2]?.name} />                    
-                        </div>   
-                    </div>             
+                            </div>   
+                        </div>        
+                    </div>
+                    <div className="page__container__div__card">
+                        <h3>Page Raider io :</h3>
+                        <Link to='https://raider.io/fr/teams/eu/slacking-and-deplete' target='_blank'><img src={rio} alt='logs' /></Link>                    
+                        <h3>Page warcraftlogs :</h3>
+                        <Link to='https://www.warcraftlogs.com/guild/reports-list/714174' target='_blank'><img src={wl} alt='logs' /></Link>
+                    </div>  
                 </div>
-                <div className="page__container__card2">
-                    <h4>Accès à notre page :</h4>
-                    <Link to='https://raider.io/fr/teams/eu/slacking-and-deplete' target='_blank'><img src={rio} alt='logs' /></Link>                    
-                    <h4>Accès à nos logs :</h4>
-                    <Link to='https://www.warcraftlogs.com/guild/reports-list/714174' target='_blank'><img src={wl} alt='logs' /></Link>
-                </div>
-            </div>
+                <div className="page__container__div">
+                    <div className="page__container__div__card2">
+                        <h3>Dernière vidéo en ligne (by Ciramor) :</h3>
+                        <YouTube videoId={videoId} className="page__container__div__card2__youtube" />
+                    </div>
+                </div>                  
+            </div>  
         </section>
     )
 };
