@@ -73,7 +73,7 @@ function Table(props){
       // console.log(team);
       
     if (loading) {
-      return <p>Chargement en cours...</p>;
+      return <p className='loader'>Chargement en cours...</p>;
     }
 
     if (error){

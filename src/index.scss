@@ -92,6 +92,15 @@ footer{
   margin-top: 60px;
 }
 
+// Loader 
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--write-color);
+  font-weight: 700;
+}
+
 // Tableau JS
 
 table {
@@ -99,11 +108,15 @@ table {
   margin : 30px auto 0;
   color: var(--write-color);
 }
-
 th, td {
   border: 1px solid var(--background-black);
   padding: 10px;
 }
+.stars{
+  color : gold;
+}
+
+// PAges
 
 .page{
   &__container{
@@ -224,7 +237,5 @@ th, td {
   }
 }
 
-.stars{
-  color : gold;
-}
+
 
