@@ -52,7 +52,7 @@ function Table(props){
         };
 
       // const getScore = async () => {
-      //   const url = `https://raider.io/api/teams/mythic-plus/progress?season=season-df-3&team=slacking-and-deplete&region=eu`;
+      //   const url = `https://raider.io/api/teams/name=slacking-and-deplete`;
       //   const response = await fetch(url, {
       //     method: 'GET',
       //     headers: { 'Content-Type': 'application/json' }
@@ -60,7 +60,7 @@ function Table(props){
   
       //   if (response.ok) {
       //     const result = await response.json();
-      //     getScore(result);
+      //     setTeam(result);
       //   } else {
       //     throw new Error('Erreur lors de la requête à Raider.io');
       //   }
