@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Stars from '../../composants/stars';
 import rio from './Icon_FullColor.png';
-
+import wow from './wow.png';
 
 function Table(props){
 
@@ -71,6 +71,7 @@ function Table(props){
       }, [content]); 
 
       // console.log(team);
+      console.log(data);
       
     if (loading) {
       return <p className='loader'>Chargement en cours...</p>;
@@ -137,9 +138,14 @@ function Table(props){
                 <img src={player.thumbnail_url} alt={player.name} />
                 <div className='page__table__content__line__name__div'>
                     {player.name}
-                    <Link to={player.profile_url} target='_blank'>
-                    <img src={rio} alt='rio' />
-                    </Link>
+                    <div className='page__table__content__line__name__div__links'>
+                      <Link to={player.profile_url} target='_blank'>
+                        <img src={rio} alt='icone rio' />
+                      </Link>
+                      <Link to={`https://worldofwarcraft.blizzard.com/fr-fr/character/${player.region}/${player.realm.replace(/'/g, '').replace(/\s/g, '-')}/${player.name}`} target='_blank'>
+                        <img src={wow} alt='icone wow' />
+                      </Link>
+                    </div>
                     {player.mythic_plus_scores_by_season[0].scores.all}
                 </div>
                 </td>
