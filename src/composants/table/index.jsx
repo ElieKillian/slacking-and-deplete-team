@@ -121,6 +121,7 @@ function Table(props){
                     <Link to={player.profile_url} target='_blank'>
                     <img src={rio} alt='rio' />
                     </Link>
+                    {player.mythic_plus_scores_by_season[0].scores.all}
                 </div>
                 </td>
 
