@@ -12,6 +12,7 @@
     "react-scripts": "5.0.1",
     "react-youtube": "^10.1.0",
     "sass": "^1.69.5",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

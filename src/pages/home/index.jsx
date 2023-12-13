@@ -1,6 +1,7 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import YouTube from 'react-youtube';
+import Gallery from '../../composants/gallery';
 import wl from './wl.png';
 import rio from './rio.png';
 
@@ -12,7 +13,12 @@ function Home(){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const videoId = 'xmSMW30jf4M';    
+    const videoIds = [
+        'xmSMW30jf4M',
+        'bdzEqWpwU9c',
+        'nG7ouKgkwJE',
+        'FqdO9dwz7tc'
+      ];  
 
     useEffect(() => {
 
@@ -95,7 +101,7 @@ function Home(){
                 <div className="page__container__div">
                     <div className="page__container__div__card2">
                         <h3>Dernière vidéo en ligne (by Ciramor) :</h3>
-                        <YouTube videoId={videoId} className="page__container__div__card2__youtube" />
+                        <Gallery content={videoIds} />
                     </div>
                 </div>                  
             </div>  
