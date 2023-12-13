@@ -100,7 +100,7 @@ function Home(){
                 </div>
                 <div className="page__container__div">
                     <div className="page__container__div__card2">
-                        <h3>Dernière vidéo en ligne (by Ciramor) :</h3>
+                        <h3>Vidéos en ligne (by Ciramor) :</h3>
                         <Gallery content={videoIds} />
                     </div>
                 </div>                  
