@@ -35,9 +35,9 @@ function Gallery(props) {
                     : null}   
                     {/* <img src={props.content[currentSlide]} alt='bannière' className='gallery__container__banner' />       */}
                     <div className='gallery__container__videos'>
-                        <YouTube videoId={currentSlide === 0 ? props.content[props.content.length - 1] : props.content[currentSlide - 1]} className='gallery__container__videos__alts' />                        
+                        <YouTube videoId={currentSlide === 0 ? props.content[props.content.length - 1] : props.content[currentSlide - 1]} className='gallery__container__videos__alts left' />                        
                         <YouTube videoId={props.content[currentSlide]} className='gallery__container__videos__cover' />                     
-                        <YouTube videoId={props.content[(currentSlide + 1) % props.content.length]} className='gallery__container__videos__alts'/>     
+                        <YouTube videoId={props.content[(currentSlide + 1) % props.content.length]} className='gallery__container__videos__alts right'/>     
                     </div>                   
                 </div>
             ) : null }

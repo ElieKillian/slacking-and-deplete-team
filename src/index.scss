@@ -118,6 +118,12 @@ th, td {
 .stars{
   color : gold;
 }
+.nothing{
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: 700;
+}
 
 // PAges
 
@@ -227,6 +233,7 @@ th, td {
             display: flex;
             justify-content: center;
             font-weight: 700;
+            gap: 5px;
           }          
         }
       }

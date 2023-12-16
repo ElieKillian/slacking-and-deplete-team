@@ -71,7 +71,7 @@ function Table(props){
       }, [content]); 
 
       // console.log(team);
-      console.log(data);
+      // console.log(data);
       
     if (loading) {
       return <p className='loader'>Chargement en cours...</p>;
@@ -81,15 +81,33 @@ function Table(props){
       return(<p>Erreur d'import des données !</p>)
     }
 
+    // Fonction : assignDungeonNumbers
+    // Description : Cette fonction attribue un numéro à chaque donjon et les classe par ordre alphabétique.
+    // Paramètre :
+    //   - data : Liste de données contenant les donjons à numéroter et à classer
+    // Retour : Un objet `dungeon` contenant les numéros de donjons associés à leur nom, classés par ordre alphabétique.
+
     const nameDungeons = data[0]?.mythic_plus_best_runs.map((item) => item.dungeon) || [];
-    // attribuer chaque donjon à une const
     const dungeon = {};
-    for (let i = 0; i < nameDungeons.length; i++) {
-      dungeon["number" + (i + 1)] = nameDungeons[i];
-      // Noms des variables => dungeon.number1
-    }
-    
-    // Chercher les correspondances
+
+    // Attribuer un numéro à chaque donjon et les classer par ordre alphabétique
+    nameDungeons
+      .sort() // Tri des noms de donjons par ordre alphabétique
+      .forEach((name, index) => {
+        dungeon[`number${index + 1}`] = name;
+        // Noms des variables => dungeon.number1
+      });
+
+
+    // Fonction : filterDungeonsData
+    // Description : Cette fonction cherche les correspondances entre les donjons d'une liste de données (`data`)
+    //               et les numéros de donjons définis dans un objet (`dungeon`).
+    //               Elle crée un tableau `filterDungeons` contenant des objets avec les données filtrées pour chaque donjon.
+    // Paramètres :
+    //   - data : Liste de données à filtrer (les données d'un joueur)
+    //   - dungeon : Objet contenant les numéros de donjons associés à leur nom correspondant
+    // Retour : Un tableau `filterDungeons` contenant les données filtrées pour chaque donjon.
+
     const filterDungeons = [];
     const dungeonNumbers = Object.keys(dungeon);
 
@@ -98,12 +116,14 @@ function Table(props){
       dungeonNumbers.forEach((number, index) => {
         const keyPrefix = `dj${index}`;
         dungeonData[`${keyPrefix}${i + 1}`] = {
-          filterDungeon: data[i]?.mythic_plus_best_runs?.find(item => item.dungeon === dungeon[number]),
+          filterDungeon: data[i]?.mythic_plus_best_runs?.find(item => item.dungeon === dungeon[number]) ,
           filterAltDungeon: data[i]?.mythic_plus_alternate_runs?.find(item => item.dungeon === dungeon[number])
         };
       });
       filterDungeons.push(dungeonData);
     }
+
+    // console.log(filterDungeons);
 
     return (
       <table className='page__table'>
@@ -154,34 +174,37 @@ function Table(props){
                 <React.Fragment key={index}>
                     {/* Fortified */}
                     <td className='page__table__content__line__key'>
-                    {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Fortified' &&
+                      {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Fortified' ? (
                         <div className='page__table__content__line__key__content'>
-                        {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
-                        <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
+                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
                         </div>
-                    }
-                    {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' &&
+                      ) : filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' ? (
                         <div className='page__table__content__line__key__content'>
-                        {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
-                        <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
+                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
                         </div>
-                    }
+                      ) : (
+                        <div className='nothing'>0</div>
+                      )}
                     </td>
+
 
                     {/* Tyrannical */}
                     <td className='page__table__content__line__key'>
-                    {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' &&
+                      {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' ? (
                         <div className='page__table__content__line__key__content'>
-                        {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
-                        <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
+                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
                         </div>
-                    }
-                    {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' &&
+                      ) : filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' ? (
                         <div className='page__table__content__line__key__content'>
-                        {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
-                        <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
+                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
                         </div>
-                    }
+                      ) : (
+                        <div className='nothing'>0</div>
+                      )}
                     </td>
                 </React.Fragment>
                 ))}
