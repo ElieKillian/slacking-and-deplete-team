@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Stars from '../../composants/stars';
+import Loader from '../../composants/loader';
 import rio from './Icon_FullColor.png';
 import wow from './wow.png';
 
@@ -84,7 +85,9 @@ function Table(props){
       // console.log(colors);
       
     if (loading) {
-      return <p className='loader'>Chargement en cours...</p>;
+      return (
+        <Loader />
+      );
     }
 
     if (error){

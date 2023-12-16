@@ -95,15 +95,6 @@ footer{
   margin-top: 60px;
 }
 
-// Loader 
-.loader{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--write-color);
-  font-weight: 700;
-}
-
 // Tableau JS
 
 table {
@@ -128,6 +119,7 @@ th, td {
 // PAges
 
 .page{
+
   &__container{
     display: flex;
     justify-content: center;
