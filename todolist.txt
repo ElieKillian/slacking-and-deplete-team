@@ -1,3 +1,2 @@
 - Ajouter d'autres vidéos (slider ?)
-- codes couleurs sur la cote m+
 - score de team

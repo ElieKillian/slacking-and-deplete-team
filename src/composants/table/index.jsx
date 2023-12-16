@@ -8,6 +8,7 @@ function Table(props){
 
     const content = props.content;
     const [data, setData] = useState([]);
+    const [colors, setColors] = useState([]);
     // const [team, setTeam] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -30,19 +31,27 @@ function Table(props){
       
         const fetchDataForAllUsers = async () => {
           try {
-            const response = await fetch ('./members.json');
-            const result = await response.json();
+            // obtenir la liste des joueurs dans le json
+            const getDataMembers = await fetch ('./members.json');
+            const getMembers = await getDataMembers.json();
             let users;
+            // Voir si c'est tableau des main ou des alts, envoyer les données correspondantes
             if (content === 'roster') {
-                users = result.members;
+                users = getMembers.members;
               } else if (content === 'alts') {
-                users = result.alts;
+                users = getMembers.alts;
               } else {
                 throw new Error('Contenu non pris en charge : ' + content);
               }
             const promises = users.map(fetchDataForUser);
+            // attendre le résultat des tous les fetchs des membres
             const results = await Promise.all(promises);
+            // obtenir les couleurs Rio
+            const getColors = await fetch('https://raider.io/api/v1/mythic-plus/score-tiers');
+            const rioColors = await getColors.json();
+            // Stocker tous les résultats
             setData(results);
+            setColors(rioColors);
           } catch (error) {
             console.error('Une erreur s\'est produite :', error);
             setError(true);
@@ -72,6 +81,7 @@ function Table(props){
 
       // console.log(team);
       // console.log(data);
+      // console.log(colors);
       
     if (loading) {
       return <p className='loader'>Chargement en cours...</p>;
@@ -125,6 +135,19 @@ function Table(props){
 
     // console.log(filterDungeons);
 
+    function obtenirCouleurPourScore(score) {
+      // Parcourir les paliers de score
+      for (const palier of colors) {
+        // Comparer le score avec le palier actuel
+        if (score >= palier.score) {
+          return palier.rgbHex; // Renvoie la couleur du palier correspondant
+        }
+      }
+    
+      // Si aucun score, attribuer une couleur par défaut
+      return "#white"; 
+    }
+
     return (
       <table className='page__table'>
         <thead className='page__table__header'>
@@ -166,7 +189,9 @@ function Table(props){
                         <img src={wow} alt='icone wow' />
                       </Link>
                     </div>
-                    {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
+                    <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.all) }}>
+                      {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
+                    </div>
                 </div>
                 </td>
 
