@@ -4,6 +4,9 @@ import Stars from '../../composants/stars';
 import Loader from '../../composants/loader';
 import rio from './Icon_FullColor.png';
 import wow from './wow.png';
+import dps from './dps.bmp';
+import tank from './tank.bmp';
+import heal from './heal.bmp';
 
 function Table(props){
 
@@ -181,21 +184,43 @@ function Table(props){
             {data.map((player, playerIndex) => (
             <tr key={playerIndex} className='page__table__content__line'>
                 <td className='page__table__content__line__name'>
-                <img src={player.thumbnail_url} alt={player.name} />
-                <div className='page__table__content__line__name__div'>
-                    {player.name}
-                    <div className='page__table__content__line__name__div__links'>
-                      <Link to={player.profile_url} target='_blank'>
-                        <img src={rio} alt='icone rio' />
-                      </Link>
-                      <Link to={`https://worldofwarcraft.blizzard.com/fr-fr/character/${player.region}/${player.realm.replace(/'/g, '').replace(/\s/g, '-')}/${player.name}`} target='_blank'>
-                        <img src={wow} alt='icone wow' />
-                      </Link>
-                    </div>
-                    <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.all) }}>
-                      {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
-                    </div>
-                </div>
+                  <div className='page__table__content__line__name__div'>
+                    <img src={player.thumbnail_url} alt={player.name} />
+                    {player.mythic_plus_scores_by_season[0].scores.all !== 0 &&
+                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.all) }} className='page__table__content__line__name__div__scores'>
+                          {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
+                        </div>
+                      }
+                  </div>
+                  <div className='page__table__content__line__name__div'>
+                      {player.name}
+                      <div className='page__table__content__line__name__div__links'>
+                        <Link to={player.profile_url} target='_blank'>
+                          <img src={rio} alt='icone rio' />
+                        </Link>
+                        <Link to={`https://worldofwarcraft.blizzard.com/fr-fr/character/${player.region}/${player.realm.replace(/'/g, '').replace(/\s/g, '-')}/${player.name}`} target='_blank'>
+                          <img src={wow} alt='icone wow' />
+                        </Link>
+                      </div>
+                      {player.mythic_plus_scores_by_season[0].scores.dps !== 0 &&
+                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.dps) }} className='page__table__content__line__name__div__scores'>
+                          <img src={dps} alt='dps' />
+                          {parseInt(player.mythic_plus_scores_by_season[0].scores.dps)}
+                        </div>
+                      }
+                      {player.mythic_plus_scores_by_season[0].scores.tank !== 0 &&
+                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.tank) }} className='page__table__content__line__name__div__scores'>
+                          <img src={tank} alt='tank' />
+                          {parseInt(player.mythic_plus_scores_by_season[0].scores.tank)}
+                        </div>
+                      }
+                      {player.mythic_plus_scores_by_season[0].scores.healer !== 0 &&
+                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.healer) }} className='page__table__content__line__name__div__scores'>
+                          <img src={heal} alt='heal' />
+                          {parseInt(player.mythic_plus_scores_by_season[0].scores.healer)}
+                        </div>
+                      }
+                  </div>
                 </td>
 
                 {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
@@ -204,12 +229,16 @@ function Table(props){
                     <td className='page__table__content__line__key'>
                       {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Fortified' ? (
                         <div className='page__table__content__line__key__content'>
-                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          <Link to={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.url} target='_blank'>
+                            {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          </Link>
                           <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
                         </div>
                       ) : filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Fortified' ? (
                         <div className='page__table__content__line__key__content'>
-                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          <Link to={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.url} target='_blank'>
+                            {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          </Link>
                           <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
                         </div>
                       ) : (
@@ -222,12 +251,16 @@ function Table(props){
                     <td className='page__table__content__line__key'>
                       {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.affixes[0]?.name === 'Tyrannical' ? (
                         <div className='page__table__content__line__key__content'>
-                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          <Link to={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.url} target='_blank'>
+                            {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.mythic_level || 0}
+                          </Link>
                           <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterDungeon?.num_keystone_upgrades} />
                         </div>
                       ) : filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.affixes[0]?.name === 'Tyrannical' ? (
                         <div className='page__table__content__line__key__content'>
-                          {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          <Link to={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.url} target='_blank'>
+                            {filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.mythic_level || 0}
+                          </Link>
                           <Stars content={filterDungeons[playerIndex]?.[`dj${index}${playerIndex + 1}`]?.filterAltDungeon?.num_keystone_upgrades} />
                         </div>
                       ) : (

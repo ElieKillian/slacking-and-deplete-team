@@ -37,9 +37,11 @@
   }
   a{
     text-decoration: none;
+    color: var(--write-color);
   }
   a:visited{
     text-decoration: none;
+    color: var(--write-color);
   }
   
 // Composant Header
@@ -197,6 +199,7 @@ th, td {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap : 5px;
 
           img{
             border-radius: 20px;
@@ -217,6 +220,13 @@ th, td {
 
             &__links{
               display: flex;
+            }
+
+            &__scores{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap : 2px;
             }
           }
         }
