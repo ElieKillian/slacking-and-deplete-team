@@ -27,7 +27,7 @@
   }  
   h1, h2, h3{
     display: flex;
-    color:var(--write-color);
+    color:var(--green);
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -35,13 +35,16 @@
   h2{
     margin: 20px;
   }
+  h4, p{
+    color: var(--green);
+  }
   a{
     text-decoration: none;
-    color: var(--write-color);
+    color: var(--green);
   }
   a:visited{
     text-decoration: none;
-    color: var(--write-color);
+    color: var(--green);
   }
   
 // Composant Header
@@ -99,13 +102,9 @@ footer{
 
 // Tableau JS
 
-table {
-  border-collapse: collapse;
-  margin : 30px auto 0;
-  color: var(--write-color);
-}
 th, td {
   border: 1px solid var(--background-black);
+  color: var(--green);
   padding: 10px;
 }
 .stars{
@@ -139,6 +138,8 @@ th, td {
         justify-content: center;
         align-items: center;
         background-color: var(--background-black);
+        box-shadow: 0 4px 8px var(--green);
+        border: 1px solid var(--green);
         color: var(--write-color);
         border-radius: 20px;
         padding:20px;
@@ -165,6 +166,24 @@ th, td {
             }
           }
         }
+
+        &__content2{
+          display: flex;
+          width: 50%;
+          justify-content: space-around;
+          gap : 50px;
+
+          &__button{
+            display: flex;
+            justify-content: center;
+            gap : 20px;
+            background-color: var(--main-color);
+            border: 1px solid var(--green);
+            box-shadow: 0 4px 8px var(--green);
+            border-radius: 20px;
+            padding: 20px 20px;
+          }
+        }
       }
 
       &__card2{
@@ -174,6 +193,8 @@ th, td {
         align-items: center;
         background-color: var(--background-black);
         color: var(--write-color);
+        border: 1px solid var(--green);
+        box-shadow: 0 4px 8px var(--green);
         border-radius: 20px;
         padding:20px;
         width: 90%;
@@ -184,11 +205,20 @@ th, td {
   }
 
   &__table{
+
+    border-collapse: collapse;
+    margin : 30px auto 0;
+    border: 1px solid var(--green);
+    box-shadow: 0 4px 8px var(--green);
+    border-radius: 20px;
+
     &__header{
       background-color: var(--background-black);
 
       img{
         border-radius: 20px;
+        border: 1px solid var(--green);
+        box-shadow: 0 4px 8px var(--green);        
       }
     }
     &__content{

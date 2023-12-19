@@ -92,11 +92,17 @@ function Home(){
                             </div>   
                         </div>        
                     </div>
-                    <div className="page__container__div__card">
-                        <h3>Page Raider io :</h3>
-                        <Link to='https://raider.io/fr/teams/eu/slacking-and-deplete' target='_blank'><img src={rio} alt='logs' /></Link>                    
-                        <h3>Page warcraftlogs :</h3>
-                        <Link to='https://www.warcraftlogs.com/guild/reports-list/714174' target='_blank'><img src={wl} alt='logs' /></Link>
+                    <div className="page__container__div__card">        
+                        <div className="page__container__div__card__content2">              
+                            <Link to='https://raider.io/fr/teams/eu/slacking-and-deplete' target='_blank' className="page__container__div__card__content2__button">
+                                <h3>Raider.io</h3>
+                                <img src={rio} alt='logs' />
+                            </Link>                   
+                            <Link to='https://www.warcraftlogs.com/guild/reports-list/714174' target='_blank' className="page__container__div__card__content2__button">
+                                <h3>Logs</h3>
+                                <img src={wl} alt='logs' />
+                            </Link>
+                        </div>  
                     </div>  
                 </div>
                 <div className="page__container__div">

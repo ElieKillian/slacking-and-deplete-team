@@ -158,7 +158,7 @@ function Table(props){
       <table className='page__table'>
         <thead className='page__table__header'>
           <tr>
-            <th></th>
+            <th colSpan={1} s></th>
             {error === false ? (
                 nameDungeons?.map((item, index) => (
                   <>
