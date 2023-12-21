@@ -27,7 +27,7 @@
   }  
   h1, h2, h3{
     display: flex;
-    color:var(--green);
+    color:var(--write-color);
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -36,15 +36,15 @@
     margin: 20px;
   }
   h4, p{
-    color: var(--green);
+    color: var(--write-color);
   }
   a{
     text-decoration: none;
-    color: var(--green);
+    // color: var(--write-color);
   }
   a:visited{
     text-decoration: none;
-    color: var(--green);
+    // color: var(--write-color);
   }
   
 // Composant Header
@@ -103,9 +103,9 @@ footer{
 // Tableau JS
 
 th, td {
-  border: 1px solid var(--background-black);
-  color: var(--green);
+  color: var(--write-color);
   padding: 10px;
+  border: 1px solid var(--background-black);
 }
 .stars{
   color : gold;
@@ -138,8 +138,8 @@ th, td {
         justify-content: center;
         align-items: center;
         background-color: var(--background-black);
-        box-shadow: 0 4px 8px var(--green);
-        border: 1px solid var(--green);
+        box-shadow: 0 4px 8px var(--background-black);
+        // border: 1px solid var(--green);
         color: var(--write-color);
         border-radius: 20px;
         padding:20px;
@@ -163,6 +163,7 @@ th, td {
               width: 64px;
               height: 64px;
               border-radius: 20px;
+              box-shadow: 0 4px 8px var(--background-black);
             }
           }
         }
@@ -178,10 +179,14 @@ th, td {
             justify-content: center;
             gap : 20px;
             background-color: var(--main-color);
-            border: 1px solid var(--green);
-            box-shadow: 0 4px 8px var(--green);
+            box-shadow: 0 4px 8px var(--main-color);
             border-radius: 20px;
             padding: 20px 20px;
+          }
+
+          &__button:hover{
+            box-shadow: 0 4px 8px var(--main-color);
+            transform: scale(1.1);
           }
         }
       }
@@ -193,8 +198,8 @@ th, td {
         align-items: center;
         background-color: var(--background-black);
         color: var(--write-color);
-        border: 1px solid var(--green);
-        box-shadow: 0 4px 8px var(--green);
+        // border: 1px solid var(--green);
+        box-shadow: 0 4px 8px var(--background-black);
         border-radius: 20px;
         padding:20px;
         width: 90%;
@@ -208,17 +213,14 @@ th, td {
 
     border-collapse: collapse;
     margin : 30px auto 0;
-    border: 1px solid var(--green);
-    box-shadow: 0 4px 8px var(--green);
     border-radius: 20px;
+    empty-cells : hide;
 
     &__header{
       background-color: var(--background-black);
 
       img{
-        border-radius: 20px;
-        border: 1px solid var(--green);
-        box-shadow: 0 4px 8px var(--green);        
+        border-radius: 20px;     
       }
     }
     &__content{
@@ -266,6 +268,10 @@ th, td {
             justify-content: center;
             font-weight: 700;
             gap: 5px;
+
+            a, a:visited{
+              color : var(--write-color);
+            }
           }          
         }
       }

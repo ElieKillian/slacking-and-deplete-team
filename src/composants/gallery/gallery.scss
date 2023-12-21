@@ -46,8 +46,8 @@
                     box-sizing: border-box; 
                     width: 80%;      
                     height: 80%;
-                    border: 1px solid var(--green);
-                    box-shadow: 0 4px 8px var(--green);
+                    // border: 1px solid var(--green);
+                    box-shadow: 0 4px 8px var(--background-black);
                 }
             }
             &__alts{
@@ -61,8 +61,8 @@
                     box-sizing: border-box; 
                     width: 80%;
                     height: 40%;
-                    border: 1px solid var(--green);
-                    box-shadow: 0 4px 8px var(--green);
+                    // border: 1px solid var(--green);
+                    box-shadow: 0 4px 8px var(--background-black);
                 }
             }
         }
@@ -107,7 +107,6 @@
                 line-height: 26px;
                 letter-spacing: 0em;
                 text-align: center;
-                color: var(--green);
 
                 @media all and (max-width : 720px){
                     display: none;

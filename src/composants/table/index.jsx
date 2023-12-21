@@ -159,24 +159,24 @@ function Table(props){
         <thead className='page__table__header'>
           <tr>
             <th colSpan={1} s></th>
-            {error === false ? (
+            {error === false && (
                 nameDungeons?.map((item, index) => (
                   <>
                     <th key={index} colSpan={2}>
                       {item} <br/>
                     </th>
                   </>
-                ))) : (null)}
+                )))}
           </tr>
           <tr>
             <th></th>
-            {error === false ? (
+            {error === false &&(
                 nameDungeons?.map((item, index) => (
                   <>
                     <th key={index}><img src={'https://wow.zamimg.com/images/wow/icons/large/ability_toughness.jpg'} alt='Fortifié' /></th>
                     <th><img src={'https://wow.zamimg.com/images/wow/icons/large/achievement_boss_archaedas.jpg'} alt='Tyrannique' /></th>
                   </> 
-                ))) : (null)}
+                )))}
           </tr>
         </thead>
         <tbody className='page__table__content'>
