@@ -63,6 +63,11 @@
         },
         {
             "region": "eu",
+            "realm": "Vol'jin",
+            "name": "Telinedra"
+        },
+        {
+            "region": "eu",
             "realm": "elune",
             "name": "Hinamoré"
         }
