@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Stars from '../../composants/stars';
 import Loader from '../../composants/loader';
+import Encart from '../../composants/encart';
 import rio from './Icon_FullColor.png';
 import wow from './wow.png';
-import dps from './dps.bmp';
-import tank from './tank.bmp';
-import heal from './heal.bmp';
 
 function Table(props){
 
@@ -19,7 +17,7 @@ function Table(props){
 
     useEffect(() => {
         const fetchDataForUser = async (user) => {
-          const url = `https://raider.io/api/v1/characters/profile?region=${user.region}&realm=${user.realm}&name=${user.name}&fields=mythic_plus_scores_by_season:current%2Cmythic_plus_best_runs%2Cmythic_plus_alternate_runs`;
+          const url = `https://raider.io/api/v1/characters/profile?region=${user.region}&realm=${user.realm}&name=${user.name}&fields=gear%2Cmythic_plus_scores_by_season:current%2Cmythic_plus_best_runs%2Cmythic_plus_alternate_runs`;
           const response = await fetch(url, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
@@ -84,7 +82,7 @@ function Table(props){
       }, [content]); 
 
       // console.log(team);
-      // console.log(data);
+      console.log(data);
       // console.log(colors);
       
     if (loading) {
@@ -141,19 +139,6 @@ function Table(props){
 
     // console.log(filterDungeons);
 
-    function obtenirCouleurPourScore(score) {
-      // Parcourir les paliers de score
-      for (const palier of colors) {
-        // Comparer le score avec le palier actuel
-        if (score >= palier.score) {
-          return palier.rgbHex; // Renvoie la couleur du palier correspondant
-        }
-      }
-    
-      // Si aucun score, attribuer une couleur par défaut
-      return "#white"; 
-    }
-
     return (
       <table className='page__table'>
         <thead className='page__table__header'>
@@ -165,6 +150,7 @@ function Table(props){
                     <th key={index} colSpan={2}>
                       {item} <br/>
                     </th>
+                    <th></th>
                   </>
                 )))}
           </tr>
@@ -175,6 +161,7 @@ function Table(props){
                   <>
                     <th key={index}><img src={'https://wow.zamimg.com/images/wow/icons/large/ability_toughness.jpg'} alt='Fortifié' /></th>
                     <th><img src={'https://wow.zamimg.com/images/wow/icons/large/achievement_boss_archaedas.jpg'} alt='Tyrannique' /></th>
+                    <th></th>
                   </> 
                 )))}
           </tr>
@@ -186,11 +173,6 @@ function Table(props){
                 <td className='page__table__content__line__name'>
                   <div className='page__table__content__line__name__div'>
                     <img src={player.thumbnail_url} alt={player.name} />
-                    {player.mythic_plus_scores_by_season[0].scores.all !== 0 &&
-                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.all) }} className='page__table__content__line__name__div__scores'>
-                          {parseInt(player.mythic_plus_scores_by_season[0].scores.all)}
-                        </div>
-                      }
                   </div>
                   <div className='page__table__content__line__name__div'>
                       {player.name}
@@ -202,22 +184,17 @@ function Table(props){
                           <img src={wow} alt='icone wow' />
                         </Link>
                       </div>
-                      {player.mythic_plus_scores_by_season[0].scores.dps !== 0 &&
-                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.dps) }} className='page__table__content__line__name__div__scores'>
-                          <img src={dps} alt='dps' />
-                          {parseInt(player.mythic_plus_scores_by_season[0].scores.dps)}
-                        </div>
+                      {player.mythic_plus_scores_by_season[0].scores.all !== 0 &&
+                        <>
+                          <Encart 
+                            player={player} 
+                            colors={colors} 
+                          />
+                        </>
                       }
-                      {player.mythic_plus_scores_by_season[0].scores.tank !== 0 &&
-                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.tank) }} className='page__table__content__line__name__div__scores'>
-                          <img src={tank} alt='tank' />
-                          {parseInt(player.mythic_plus_scores_by_season[0].scores.tank)}
-                        </div>
-                      }
-                      {player.mythic_plus_scores_by_season[0].scores.healer !== 0 &&
-                        <div style={{ color: obtenirCouleurPourScore(player.mythic_plus_scores_by_season[0].scores.healer) }} className='page__table__content__line__name__div__scores'>
-                          <img src={heal} alt='heal' />
-                          {parseInt(player.mythic_plus_scores_by_season[0].scores.healer)}
+                      {player.mythic_plus_scores_by_season[0].scores.all !== 0 &&
+                        <div className='page__table__content__line__name__div__ilvl'>
+                          Ilvl : {parseInt(player.gear.item_level_equipped)}
                         </div>
                       }
                   </div>
@@ -267,12 +244,14 @@ function Table(props){
                         <div className='nothing'>0</div>
                       )}
                     </td>
+
+                    <td className='page__table__content__line__empty'></td>
                 </React.Fragment>
                 ))}
             </tr>
             ))}
-
         </tbody>
+        <tfoot className='page__table__empty'></tfoot>
       </table>
     )
 }

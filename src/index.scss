@@ -258,6 +258,18 @@ th, td {
               display: flex;
               align-items: center;
               justify-content: center;
+              background-color: var(--main-color);
+              padding: 1px 10px;
+              border-radius: 20px;
+              gap : 2px;
+            }
+
+            
+            &__ilvl{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: var(--green);
               gap : 2px;
             }
           }
@@ -274,7 +286,15 @@ th, td {
             }
           }          
         }
+
+        &__empty{
+          background-color: var(--background-black);
+        }
       }
+    }
+    &__empty{
+      background-color: var(--background-black);
+      height:59px;
     }
   }
 }
