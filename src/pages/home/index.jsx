@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Gallery from '../../composants/gallery';
+import Loader from '../../composants/loader';
 import wl from './wl.png';
 import rio from './rio.png';
 
@@ -53,7 +54,7 @@ function Home(){
     }, []);
 
     if (loading) {
-        return <p>Chargement en cours...</p>;
+        return <Loader />;
     }
   
     if (error){
